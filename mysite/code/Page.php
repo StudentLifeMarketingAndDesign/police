@@ -109,7 +109,7 @@ class Page_Controller extends ContentController {
 	
 	function Siblings(){
 	//$siblings = DataObject::get('Page','ParentID = '.$this->getParent()->ID);
-	$siblings = Page::get()->filter(array('ParentID =' => '$this->getParent()->ID'));
+	$siblings = Page::get()->filter(array('ParentID' => $this->getParent()->ID));
 		if($siblings){
 			return $siblings;
 		}else{

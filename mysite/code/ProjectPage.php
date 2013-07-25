@@ -33,7 +33,7 @@ class ProjectPage_Controller extends Page_Controller {
 	 * @var array
 	 */
 	function ProjectIDForm() {
-		$fields = new FieldSet(
+		$fields = new FieldList(
 			new TextField('Name'),
 			new TextField('Address'),
 			new TextField('Email'),
@@ -148,7 +148,7 @@ class ProjectPage_Controller extends Page_Controller {
 			new TextField('Item10Serial'),
 			new TextField('Item10Value')
 		);
- 		$actions = new FieldSet(
+ 		$actions = new FieldList(
 			new FormAction('doProjectIDForm', 'Register Your Items')
 		);
 		$myForm = new Form($this, 'ProjectIDForm', $fields, $actions);
@@ -168,7 +168,8 @@ class ProjectPage_Controller extends Page_Controller {
 		$submission->write();
 		#print_r($submission);
 		
-		$records = DataObject::get('ProjectIDSubmission', '', 'id DESC', '', '1');
+		//$records = DataObject::get('ProjectIDSubmission', '', 'id DESC', '', '1');
+		$records = ProjectIDSubmission::get()->sort('id', 'DESC')->first();
 			#$to = "kopf1988@gmail.com";
 			$to = "police@uiowa.edu";
 			$from = $data["Email"];
@@ -185,7 +186,8 @@ class ProjectPage_Controller extends Page_Controller {
 	
 	function show() {
 		$mr = "id,type,date,date,name,address,email,type1,model1,serial1,value1,\n\n";
-		$records = DataObject::get("ProjectIDSubmission");
+		//$records = DataObject::get("ProjectIDSubmission");
+		$records = ProjectIDSubmission::get(); 
 		/*
 		$rsQry = mysql_query ("select * from ProjectIDSubmission");
 		$arrQry  = mysql_fetch_assoc($rsQry);

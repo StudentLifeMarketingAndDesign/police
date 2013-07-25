@@ -14,7 +14,7 @@
 		<p class="blogVitals">
 			<% _t('POSTEDBY', 'Posted by') %> $Author.XML |
 	 		$Date.Long
-			<% if TagsCollection %> | Tags: <% control TagsCollection %><a href="$Link" title="View all posts tagged '$Tag'" rel="tag">$Tag</a><% if Last %><% else %>, <% end_if %><% end_control %><% end_if %></p>
+			<% if TagsCollection %> | Tags: <% loop TagsCollection %><a href="$Link" title="View all posts tagged '$Tag'" rel="tag">$Tag</a><% if Last %><% else %>, <% end_if %><% end_loop %><% end_if %></p>
 	</div>
 </div>
 	

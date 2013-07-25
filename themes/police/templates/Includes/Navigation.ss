@@ -1,18 +1,18 @@
 <div id="navigation">
 		<ul id="nav">
-			<% control Menu(1) %>
+			<% loop Menu(1) %>
 				<li><a href="$Link">$Title</a> 
 				
 				<% if Children %>
 					<ul>
-				<% control Children %>
+				<% loop Children %>
 					<li><a href="$Link">$Title</a></li>
-				<% end_control %>
+				<% end_loop %>
 				</ul>
 				<% end_if %>
 				
 				</li>
-			<% end_control %>
+			<% end_loop %>
 			<!--<li><a href="#">Home</a></li>
 			<li><a href="#">News</a>
 				<ul>

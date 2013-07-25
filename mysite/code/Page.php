@@ -16,9 +16,9 @@ class Page extends SiteTree {
 	
 		$fields = parent::getCMSFields();
 		
-		$fields->addFieldToTab('Root.Content.GoogleMaps', new TextField('GoogleMapURL','Google Map URL'));
-		$fields->addFieldToTab('Root.Content.Main', new HTMLEditorField('Summary','Summary for Info Page'));
-		$fields->addFieldToTab('Root.Content.Main', new ImageField('PreviewImage','Image Preview for Info Page'));
+		//$fields->addFieldToTab('Root.GoogleMaps', new TextField('GoogleMapURL','Google Map URL'));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField('Summary','Summary for Info Page'));
+		$fields->addFieldToTab('Root.Main', new UploadField('PreviewImage','Image Preview for Info Page'));
 		
 		return $fields;
 	}
@@ -54,14 +54,15 @@ class Page_Controller extends ContentController {
 	}
 	
 	function latestBlogEntries($number=6) {    
-      	return DataObject::get('BlogEntry', "","Date DESC", false, $number); 
+      	//return DataObject::get('BlogEntry', "","Date DESC", false, $number);
+      	return BlogEntry::get()->sort('Date', 'DESC')->limit($number); 
 	}
 	
 	function RSSFeed($limit,$feedURL="http://open.dapper.net/services/iccrimestoppers") {
 			
 		  $output = new DataObjectSet();
 		  
-		  include_once(Director::getAbsFile(SAPPHIRE_DIR . '/thirdparty/simplepie/simplepie.inc'));
+		  include_once(Director::getAbsFile(FRAMEWORK_DIR . '/thirdparty/simplepie/simplepie.inc'));
 		  
 		  $t1 = microtime(true);
 		  $feed = new SimplePie($feedURL, TEMP_FOLDER);
@@ -95,11 +96,11 @@ class Page_Controller extends ContentController {
    function SearchForm() {
       $searchText = isset($this->Query) ? $this->Query : 'Search';
  
-      $fields = new FieldSet(
+      $fields = new FieldList(
          new TextField("Search", "", $searchText)
       );
  
-      $actions = new FieldSet(
+      $actions = new FieldList(
          new FormAction('results', 'Go')
       );
  
@@ -107,7 +108,8 @@ class Page_Controller extends ContentController {
    }
 	
 	function Siblings(){
-	$siblings = DataObject::get('Page','ParentID = '.$this->getParent()->ID);
+	//$siblings = DataObject::get('Page','ParentID = '.$this->getParent()->ID);
+	$siblings = Page::get()->filter(array('ParentID =' => '$this->getParent()->ID'));
 		if($siblings){
 			return $siblings;
 		}else{

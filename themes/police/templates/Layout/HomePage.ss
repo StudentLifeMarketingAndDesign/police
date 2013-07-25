@@ -15,20 +15,20 @@
 <div class="clear"></div>
 <div id="content_navigation">
 
-	<% control Menu(1) %>
+	<% loop Menu(1) %>
 		<% if Children %>
 				<div class="content_link block{$Pos}">
 				<h2><a href="$Link">$MenuTitle</a></h2>
 				
 				<ul>
-				<% control Children %>
+				<% loop Children %>
 				<li><a href="$Link">$MenuTitle</a></li>
-				<% end_control %>
+				<% end_loop %>
 				</ul>
 				
 				</div>
 		<% end_if %>
-<% end_control %>
+<% end_loop %>
 
 </div>
 </div>
@@ -56,13 +56,13 @@
 	<h1>Latest News</h1>
 
 	<% if latestBlogEntries %>
-		<% control latestBlogEntries(2) %>
+		<% loop latestBlogEntries(2) %>
 		<div class="homepage_blog_entry">
 			<h2 class="postTitle"><a href="$Link" title="<% _t('VIEWFULL', 'View full post titled -') %> '$Title'">$MenuTitle</a></h2>
 			<p class="authorDate">$Date.Long</p>
 			$Summary
 		</div>
-		<% end_control %>
+		<% end_loop %>
 	<% else %>
 		<h3><% _t('NOENTRIES', 'There are no blog entries') %></h3>
 	<% end_if %>

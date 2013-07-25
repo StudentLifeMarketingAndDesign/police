@@ -1,0 +1,61 @@
+
+/* Main Sections
+=================================================== */
+
+#wrapper {
+	margin:0 auto;
+	width:1020px;
+}
+
+#header, #navigation, #container, #credits {
+	margin:0 20px;
+	width:980px;
+}
+
+#header {
+	height:100px;
+}
+
+#container {
+	margin:15px 20px;
+}
+
+#content {
+	padding:20px;
+	width:620px;
+	float:left;
+}
+
+#sidebar {
+	padding:20px;
+	width: 280px;
+	float: left;
+}
+
+#footer {
+	clear:both;
+}
+
+
+.split {
+	float:left;
+	width:300px;
+}
+
+.split img {
+	margin-bottom:10px;
+}
+
+.odd {
+	margin-right:15px;
+	clear:left;
+}
+
+.even {
+
+}
+
+.imgright {
+	float:right;
+	margin:0 0 10px 20px;
+}

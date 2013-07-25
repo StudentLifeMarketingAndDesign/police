@@ -1,0 +1,51 @@
+<?php
+class ProjectIDSubmission extends DataObject {
+	static $db = array(
+		'Name' => 'Text',
+		'Address' => 'Text',
+		'Email' => 'Text',
+		'Item1Type' => 'Text',
+		'Item1Model' => 'Text',
+		'Item1Serial' => 'Text',
+		'Item1Value' => 'Text',
+		'Item2Type' => 'Text',
+		'Item2Model' => 'Text',
+		'Item2Serial' => 'Text',
+		'Item2Value' => 'Text',
+		'Item3Type' => 'Text',
+		'Item3Model' => 'Text',
+		'Item3Serial' => 'Text',
+		'Item3Value' => 'Text',
+		'Item4Type' => 'Text',
+		'Item4Model' => 'Text',
+		'Item4Serial' => 'Text',
+		'Item4Value' => 'Text',
+		'Item5Type' => 'Text',
+		'Item5Model' => 'Text',
+		'Item5Serial' => 'Text',
+		'Item5Value' => 'Text',
+		'Item6Type' => 'Text',
+		'Item6Model' => 'Text',
+		'Item6Serial' => 'Text',
+		'Item6Value' => 'Text',
+		'Item7Type' => 'Text',
+		'Item7Model' => 'Text',
+		'Item7Serial' => 'Text',
+		'Item7Value' => 'Text',
+		'Item8Type' => 'Text',
+		'Item8Model' => 'Text',
+		'Item8Serial' => 'Text',
+		'Item8Value' => 'Text',
+		'Item9Type' => 'Text',
+		'Item9Model' => 'Text',
+		'Item9Serial' => 'Text',
+		'Item9Value' => 'Text',
+		'Item10Type' => 'Text',
+		'Item10Model' => 'Text',
+		'Item10Serial' => 'Text',
+		'Item10Value' => 'Text'
+	);
+	function getDBfields() {
+		return $this->database_fields("ProjectIDSubmission");
+	}
+}

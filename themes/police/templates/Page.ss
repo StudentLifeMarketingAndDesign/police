@@ -36,7 +36,7 @@ $MetaTags
 	</div>
 </div>
 <div id="credits">
-	<p id="copyright">&copy; <a href="http://www.uiowa.edu/" class="noicon">The University of Iowa</a> $Now.Year. All rights reserved.</p>
+	<p id="copyright">&copy; <a href="http://www.uiowa.edu/" class="noicon">The University of Iowa</a> {$Now.Year} All rights reserved.</p>
 	<p id="md_credits">Designed and Developed by <a href="http://studentlife.uiowa.edu/md/" class="noicon">Student Life Marketing &amp; Design</a>. Link icons by <a href="http://www.famfamfam.com/lab/icons/silk/" class="noicon">FamFamFam</a>.</p>
 	<div class="clear"></div>
 </div>

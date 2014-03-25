@@ -11,6 +11,7 @@
 $MetaTags
 </head>
 <body id="home">
+<% include UiowaBar %>
 <div id="wrapper">
 	<div id="header">
 		<h1>University of Iowa Department of Public Safety</h1>

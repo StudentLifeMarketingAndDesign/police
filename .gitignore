@@ -1,0 +1,13 @@
+assets/
+blog/
+cms/
+framework/
+_ss_environment.php
+.sass-cache
+widgets/
+userforms/
+vendor/autoload.php
+vendor/composer
+spamprotection
+recaptcha
+themes/simple

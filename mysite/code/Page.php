@@ -1,13 +1,13 @@
 <?php
 class Page extends SiteTree {
 
-	public static $db = array(
+	private static $db = array(
 		"GoogleMapURL" => "Text",
 		"Summary" => "HTMLText",
 		
 	);
 
-	public static $has_one = array(
+	private static $has_one = array(
 		"PreviewImage" => "Image"
 	);
 	
@@ -17,7 +17,7 @@ class Page extends SiteTree {
 		$fields = parent::getCMSFields();
 		
 		//$fields->addFieldToTab('Root.GoogleMaps', new TextField('GoogleMapURL','Google Map URL'));
-		$fields->addFieldToTab('Root.Main', new HTMLEditorField('Summary','Summary for Info Page'));
+		$fields->addFieldToTab('Root.Main', new HtmlEditorField('Summary','Summary for Info Page'));
 		$fields->addFieldToTab('Root.Main', new UploadField('PreviewImage','Image Preview for Info Page'));
 		
 		return $fields;
@@ -41,9 +41,8 @@ class Page_Controller extends ContentController {
 	 *
 	 * @var array
 	 */
-	public static $allowed_actions = array (
+	private static $allowed_actions = array ("SearchForm"
 	);
-
 	public function init() {
 		parent::init();
 
@@ -54,13 +53,12 @@ class Page_Controller extends ContentController {
 	}
 	
 	function latestBlogEntries($number=6) {    
-      	//return DataObject::get('BlogEntry', "","Date DESC", false, $number);
       	return BlogEntry::get()->sort('Date', 'DESC')->limit($number); 
 	}
 	
 	function RSSFeed($limit,$feedURL="http://open.dapper.net/services/iccrimestoppers") {
 			
-		  $output = new DataObjectSet();
+		  $output = new ArrayList();
 		  
 		  include_once(Director::getAbsFile(FRAMEWORK_DIR . '/thirdparty/simplepie/simplepie.inc'));
 		  
@@ -108,7 +106,7 @@ class Page_Controller extends ContentController {
    }
 	
 	function Siblings(){
-	//$siblings = DataObject::get('Page','ParentID = '.$this->getParent()->ID);
+
 	$siblings = Page::get()->filter(array('ParentID' => $this->getParent()->ID));
 		if($siblings){
 			return $siblings;

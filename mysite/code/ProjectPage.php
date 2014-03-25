@@ -1,10 +1,10 @@
 <?php
 class ProjectPage extends Page {
-	public static $db = array(
+	private static $db = array(
 							  
 	);
 
-	public static $has_one = array(
+	private static $has_one = array(
 	);
 	
 	
@@ -159,7 +159,7 @@ class ProjectPage_Controller extends Page_Controller {
 		$submission = new ProjectIDSubmission();
 		$form->saveInto($submission);
 		$submission->write();
-		Director::redirect(Director::baseURL(). $this->URLSegment . "/?success=1");
+		$this->redirect(Director::baseURL(). $this->URLSegment . "/?success=1");
 	}
 	
 	function doProjectIDForm($data,$form) {
@@ -168,7 +168,6 @@ class ProjectPage_Controller extends Page_Controller {
 		$submission->write();
 		#print_r($submission);
 		
-		//$records = DataObject::get('ProjectIDSubmission', '', 'id DESC', '', '1');
 		$records = ProjectIDSubmission::get()->sort('id', 'DESC')->first();
 			#$to = "kopf1988@gmail.com";
 			$to = "police@uiowa.edu";
@@ -178,7 +177,7 @@ class ProjectPage_Controller extends Page_Controller {
 			$email->setTemplate('MyEmail');
 			$email->populateTemplate($data);
 			$email->send();
-		Director::redirect("http://police.uiowa.edu/services/project-id/?success=1");
+			$this->redirect("http://police.uiowa.edu/services/project-id/?success=1");
 	}
 	public function Success() {
 		return isset($_REQUEST['success']) && $_REQUEST['success'] == "1";
@@ -186,7 +185,6 @@ class ProjectPage_Controller extends Page_Controller {
 	
 	function show() {
 		$mr = "id,type,date,date,name,address,email,type1,model1,serial1,value1,\n\n";
-		//$records = DataObject::get("ProjectIDSubmission");
 		$records = ProjectIDSubmission::get(); 
 		/*
 		$rsQry = mysql_query ("select * from ProjectIDSubmission");
@@ -231,7 +229,7 @@ class ProjectPage_Controller extends Page_Controller {
 		return $mr;
 	}
 	
-	public static $allowed_actions = array (
+	private static $allowed_actions = array (
 		'show' => 'CMS_ACCESS_CMSMain',
 		'ProjectIDForm',
 		'doProjectIDForm',

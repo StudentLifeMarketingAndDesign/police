@@ -4,7 +4,7 @@ global $project;
 $project = 'mysite';
 
 global $database;
-$database = 'police';
+$database = 'police2';
 
 require_once("conf/ConfigureFromEnv.php");
 MySQLDatabase::set_connection_charset('utf8');

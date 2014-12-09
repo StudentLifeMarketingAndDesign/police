@@ -4,11 +4,11 @@
 
 <div id="featured_box">
 	<div id="featured_content">
-		<img src="$ThemeDir/images/safer_ui_community.png" />
+		<img src="$ThemeDir/images/safer_ui_community.png" alt="safer ui community"/>
 		<p>Our mission is to provide each member of the University of Iowa community with a sense of security throughout campus by promoting a safe learning environment at all times and educating students, faculty, and staff in matters of protection and responsibility.</p>
 	<div id="featured_buttons">
 		<!--<img src="$ThemeDir/images/intro_video.png" />-->
-		<a href="/about"><img src="$ThemeDir/images/about_ui_dps.png" /></a>
+		<a href="/about"><img src="$ThemeDir/images/about_ui_dps.png" alt="about ui department of public saftey"/></a>
 	</div>
 	</div>
 </div>

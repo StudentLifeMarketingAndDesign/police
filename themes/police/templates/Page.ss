@@ -19,8 +19,8 @@ $MetaTags
 		<div id="search">
 <form  id="SearchForm_SearchForm" action="/home/SearchForm" method="get" enctype="application/x-www-form-urlencoded"> 
 
-				<input type="text" class="text nolabel" id="SearchForm_SearchForm_Search" name="Search" />
-				<input type="image" name="search_button" title="Go" src="$ThemeDir/images/search_icon.gif" id="search_submit" />
+				<label for="SearchForm_SearchForm_Search" style="display:none;"</label><input type="text" class="text nolabel" id="SearchForm_SearchForm_Search" name="Search" />
+				<input type="image" name="search_button" title="Go" src="$ThemeDir/images/search_icon.gif" alt="search button" id="search_submit" />
 			</form>
 			
 
@@ -29,7 +29,7 @@ $MetaTags
 	<% include Navigation %>
 	$Layout
 	<div id="footer">
-		<p id="address_footer"><a href="http://police.uiowa.edu/" class="noicon"><img src="$ThemeDir/images/ui_dps_footer.png" /></a><br />
+		<p id="address_footer"><a href="http://police.uiowa.edu/" class="noicon"><img src="$ThemeDir/images/ui_dps_footer.png" alt="Department of public saftey"/></a><br />
 			808 University Capitol Centre - 200 S. Capitol St. - Iowa City, IA 52242
 			<% if CurrentMember %>  <a id="edit-link" target="_blank" href="$EditURL"><br />Edit this Page </a><% end_if %></p>
 		<p id="contact_footer"><a href="/contact">Emergency? Dial 911</a></p>

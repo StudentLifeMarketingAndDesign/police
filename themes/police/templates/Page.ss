@@ -19,7 +19,7 @@ $MetaTags
 		<div id="search">
 <form  id="SearchForm_SearchForm" action="/home/SearchForm" method="get" enctype="application/x-www-form-urlencoded"> 
 
-				<label for="SearchForm_SearchForm_Search" style="display:none;"</label><input type="text" class="text nolabel" id="SearchForm_SearchForm_Search" name="Search" />
+				<label for="SearchForm_SearchForm_Search" style="display:none;"></label><input type="text" class="text nolabel" id="SearchForm_SearchForm_Search" name="Search" />
 				<input type="image" name="search_button" title="Go" src="$ThemeDir/images/search_icon.gif" alt="search button" id="search_submit" />
 			</form>
 			

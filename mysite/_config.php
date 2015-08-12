@@ -20,3 +20,7 @@ i18n::set_locale('en_US');
 SiteTree::enable_nested_urls();
 Requirements::set_combined_files_enabled(false); 
 FulltextSearchable::enable();
+
+if(Director::isLive()) {
+	Director::forceSSL(array('/^Security/','/^admin/'));
+}
